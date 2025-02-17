@@ -8,16 +8,17 @@ const News = () => {
 
   const fetchData = async (category, query = "") => {
     // Get the API key from Vercel environment variables
-    const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
-    console.log("API Key from env:", API_KEY); // Log the API key to verify it's fetched
-    if (!API_KEY) {
-      console.error("API Key is missing!");
-      return;
-    }
+    // const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
+    // console.log("API Key from env:", API_KEY); // Log the API key to verify it's fetched
+    // if (!API_KEY) {
+    //   console.error("API Key is missing!");
+    //   return;
+    // }
 
-    // Build the API URL using the API key variable
-    let apiUrl = `https://gnews.io/api/v4/top-headlines?category=general&lang=en&apikey=${process.env.REACT_APP_NEWS_API_KEY}`;
-
+    // // Build the API URL using the API key variable
+    // let apiUrl = `https://gnews.io/api/v4/top-headlines?category=general&lang=en&apikey=${process.env.REACT_APP_NEWS_API_KEY}`;
+    const API_KEY = "4a01bf30d3891b578ca7ddac0ac73a6a"; // Replace with your key
+    const apiUrl = `https://gnews.io/api/v4/top-headlines?category=general&lang=en&apikey=${API_KEY}`;
     if (category !== "all") {
       apiUrl += `&category=${category}`;
     }
