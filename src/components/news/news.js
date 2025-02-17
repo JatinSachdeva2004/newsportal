@@ -7,7 +7,14 @@ const News = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const fetchData = async (category, query = "") => {
-    let apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-01-17&sortBy=publishedAt&apiKey=68048bc0d0a74a7e84b30cab2bea21c3`;
+    const API_KEY = process.env.REACT_APP_NEWS_API_KEY; // Load API key from .env
+    if (!API_KEY) {
+      console.error("API Key is missing!");
+      return;
+    }
+
+    let apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-01-17&sortBy=publishedAt&apiKey=${API_KEY}`;
+
     if (category !== "all") {
       apiUrl += `&category=${category}`;
     }
