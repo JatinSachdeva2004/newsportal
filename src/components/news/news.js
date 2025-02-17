@@ -7,6 +7,8 @@ const News = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const fetchData = async (category, query = "") => {
+    const API_KEY1 = "68048bc0d0a74a7e84b30cab2bea21c3";
+
     const API_KEY = process.env.REACT_APP_NEWS_API_KEY; // Load API key from .env
     console.log("API Key from env:", API_KEY);
     if (!API_KEY) {
@@ -15,7 +17,7 @@ const News = () => {
     }
 
     // Build API URL
-    let apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-01-17&sortBy=publishedAt&apiKey=${API_KEY}`;
+    let apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-01-17&sortBy=publishedAt&apiKey=${API_KEY1}`;
     if (category !== "all") {
       apiUrl += `&category=${category}`;
     }
