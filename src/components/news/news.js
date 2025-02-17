@@ -15,7 +15,7 @@ const News = () => {
     }
 
     // Build API URL
-    let apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-01-17&sortBy=publishedAt&apiKey=68048bc0d0a74a7e84b30cab2bea21c3}`;
+    let apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-01-17&sortBy=publishedAt&apiKey=${API_KEY}`;
     if (category !== "all") {
       apiUrl += `&category=${category}`;
     }
