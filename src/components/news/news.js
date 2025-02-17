@@ -16,7 +16,7 @@ const News = () => {
     }
 
     // Build the API URL using the API key variable
-    let apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2024-01-17&sortBy=publishedAt&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+    let apiUrl = `https://gnews.io/api/v4/top-headlines?category=general&lang=en&apikey=${process.env.REACT_APP_NEWS_API_KEY}`;
 
     if (category !== "all") {
       apiUrl += `&category=${category}`;
