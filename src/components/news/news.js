@@ -7,17 +7,16 @@ const News = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const fetchData = async (category, query = "") => {
-    const API_KEY1 = "68048bc0d0a74a7e84b30cab2bea21c3";
-
-    const API_KEY = process.env.REACT_APP_NEWS_API_KEY; // Load API key from .env
+    // Get the API key from Vercel environment variables
+    const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
     console.log("API Key from env:", API_KEY);
     if (!API_KEY) {
       console.error("API Key is missing!");
       return;
     }
 
-    // Build API URL
-    let apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-01-17&sortBy=publishedAt&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+    // Build the API URL using the API key variable
+    let apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-01-17&sortBy=publishedAt&apiKey=${API_KEY}`;
 
     if (category !== "all") {
       apiUrl += `&category=${category}`;
@@ -59,7 +58,7 @@ const News = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary" id="main-nav">
         <div className="container-fluid">
           <a
-            href="#"
+            href="/"
             onClick={reload}
             className="navbar-brand"
             id="company-logo"
@@ -164,15 +163,25 @@ const News = () => {
               <div className="card-body">
                 <h5 className="card-title">{article.title}</h5>
                 <p className="card-text">{article.description}</p>
-                <a
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                  style={{ marginTop: "0.5rem" }}
-                >
-                  Go somewhere
-                </a>
+                {article.url ? (
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                    style={{ marginTop: "0.5rem" }}
+                  >
+                    Read More
+                  </a>
+                ) : (
+                  <button
+                    className="btn btn-primary"
+                    disabled
+                    style={{ marginTop: "0.5rem" }}
+                  >
+                    No Link Available
+                  </button>
+                )}
               </div>
             </div>
           ))}
