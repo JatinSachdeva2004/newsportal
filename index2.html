@@ -1,0 +1,153 @@
+[03:41, 4/8/2024] Dhruv Muj: !DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grabnewz</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="main-nav container flex">
+        <a href="#" onclick="reload()" class="company-logo">
+          <img src="GRABNEWZ-logos.jpeg" alt="company logo" />
+        </a>
+        <div class="nav-links">
+          <ul class="flex">
+            <li
+              class="hover-link nav-item"
+              id="ipl"
+              onclick="onNavItemClick('ipl')"
+            >
+              IPL
+            </li>
+            <li
+              class="hover-link nav-item"
+              id="finance"
+              onclick="onNavItemClick('finance')"
+            >
+              Finance
+            </li>
+            <li
+              class="hover-link nav-item"
+              id=""
+              onclick="onNavItemClick('politics')"
+            >
+              Politics
+            </li>
+          </ul>
+        </div>
+        <div class="search-bar flex">
+          <input
+            id="search-text"
+            type="text"
+            class="news-input"
+            placeholder="e.g. Science"
+          />
+          <button id="search-button" class="search-button">Search</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="cards-container container flex">
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="https://via.placeholder.com/400x200"
+              alt="news-image"
+              id="news-img"
+            />
+          </div>
+          <div class="card-content">
+            <h3>This is the Title</h3>
+            <h6>End Gadget 26/08/2023</h6>
+            <p class="news-desc">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Recusandae saepe quis voluptatum quisquam vitae doloremque facilis
+              molestias quae ratione cumque!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="cards-container container flex">
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="https://via.placeholder.com/400x200"
+              alt="news-image"
+              id="news-img"
+            />
+          </div>
+          <div class="card-content">
+            <h3>This is the Title</h3>
+            <h6>End Gadget 26/08/2023</h6>
+            <p class="news-desc">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Recusandae saepe quis voluptatum quisquam vitae doloremque facilis
+              molestias quae ratione cumque!
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <template id="template-news-card">
+      <div class="card">
+        <div class="card-header">
+          <img
+            src="https://via.placeholder.com/400x200"
+            alt="news-image"
+            id="news-img"
+          />
+        </div>
+        <div class="card-content">
+          <h3 id="news-title">This is the Title</h3>
+          <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+          <p class="news-desc" id="news-desc">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+            saepe quis voluptatum quisquam vitae doloremque facilis molestias
+            quae ratione cumque!
+          </p>
+        </div>
+      </div>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+@import
+url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
+* { padding: 0; margin: 0; box-sizing: border-box; } :root {
+--primary-text-color: #183b56; --secondary-text-color: #577592; --accent-color:
+#2294ed; --accent-color-dark: #1d69a3; } body { font-family: "Poppins",
+sans-serif; color: var(--primary-text-color); } p { font-family: "Roboto",
+sans-serif; color: var(--secondary-text-color); line-height: 1.4rem; } a {
+text-decoration: none; } ul { list-style: none; } .flex { display: flex;
+align-items: center; } .container { max-width: 1180px; margin-inline: auto; ; }
+nav { background-color: #88bce1; box-shadow: 0 0 4px #bbd0e2; position: fixed;
+top: 0; z-index: 99; left: 0; right: 0; } .main-nav { justify-content:
+space-between; padding-block: 8px; } .company-logo img { max-width: 20%; /*
+Adjust the percentage as needed */ height: auto; border-radius: 50%;
+margin-bottom: 20px; border: 4px solid #fff; transition: transform 0.3s
+ease-in-out; } .company-logo img :hover { transform: rotate(360deg); }
+.nav-links ul { gap: 30px; } .hover-link { cursor: pointer; } .hover-link:hover
+{ color: var(--secondary-text-color); } .hover-link:active { color: red; }
+.nav-item.active { color: var(--accent-color); } .search-bar { margin-left:
+10px; height: 32px; gap: 16px; } .news-input { width: 200px; height: 100%;
+padding-inline: 12px; border-radius: 4px; border: 2px solid #bbd0e2;
+font-family: "Roboto", sans-serif; } .search-button { background-color:
+var(--accent-color); color: white; padding: 8px 24px; border: none;
+border-radius: 4px; cursor: pointer; font-family: "Roboto", sans-serif; }
+.search-button:hover { background-color: var(--accent-color-dark); } main {
+padding-block: 20px; margin-top: 80px; } .cards-container { margin-top: 7.5%;
+margin-left: 10px; justify-content: space-between; flex-wrap: nowrap; gap: 20px;
+/* Use gap instead of row-gap for compatibility */ align-items: start; } .card {
+width: calc(33.33% - 20px); /* Adjust card width based on the desired number of
+cards per row and gap */ min-height: 400px; box-shadow: 0 0 4px #d4ecff;
+border-radius: 4px; cursor: pointer; background-color: #fff; overflow: hidden;
+/* transition: all 0.3s ease; */ } .card:hover { box-shadow: 1px 1px 8px
+#d4ecff; background-color: #f9fdff; transform: translateY(-2px); } .card-header
+img { width: 100%; height: 180px; object-fit: cover; } .card-content { padding:
+12px; } .news-source { margin-block: 12px; }
