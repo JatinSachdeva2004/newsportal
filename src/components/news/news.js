@@ -17,7 +17,7 @@ const News = () => {
     }
 
     // Build API URL
-    const apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-01-17&sortBy=publishedAt&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+    let apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2025-01-17&sortBy=publishedAt&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
 
     if (category !== "all") {
       apiUrl += `&category=${category}`;
