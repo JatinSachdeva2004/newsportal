@@ -9,7 +9,7 @@ const News = () => {
   const fetchData = async (category, query = "") => {
     // Get the API key from Vercel environment variables
     const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
-    console.log("API Key from env:", API_KEY); // Log the API key
+    console.log("API Key from env:", API_KEY); // Log the API key to verify it's fetched
     if (!API_KEY) {
       console.error("API Key is missing!");
       return;
